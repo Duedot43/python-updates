@@ -58,7 +58,7 @@ if selection == 6:
         file_path = filedialog.askdirectory()
         print(file_path)
         subprocess.run(["cd", "server", ";","cp", "-r", "world", file_path])   
-MsgBox = tk.messagebox.askquestion ('Use Ngrok?','Do you want to use ngrok or be guided to server.properties to configure your server?',icon = 'warning')
+MsgBox = tk.messagebox.askquestion ('Use Ngrok?','Do you want to use ngrok or be guided to server.properties to configure your server? this will not work if the derectory that this app is in has spaces',icon = 'warning')
 if MsgBox == 'yes':
     cwd = os.getcwd()
     quotes = "'"
