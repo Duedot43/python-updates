@@ -84,7 +84,7 @@ if updates == '1':
 box = messagebox.askquestion(title='Start Server?', message='Start The Server?')
 if box == 'yes':
     #subprocess.call(["cd", "server", ";", "./start_server.command"])
-    os.system("cd server ; java -Xmx1024M -Xms1024M -jar papper.jar")
+    subprocess.call(["cd", "server", ";", "java", "-Xmx2G", "-Xms2G", "-jar", "papper.jar"])
     exit()
 if box == 'no':
     exit()
