@@ -63,7 +63,7 @@ if selection == 7:
     root = tk.Tk()
     root.withdraw()
 
-    file_path = filedialog.askopenfilename()
+    file_path = filedialog.askdirectory()
     subprocess.call(["cd", "server", ";", "rm", "-rf", "world", ";", "cp", file_path, "."])
 MsgBox = tk.messagebox.askquestion ('Use Ngrok?','Do you want to use ngrok or be guided to server.properties to configure your server? this will not work if the derectory that this app is in has spaces',icon = 'warning')
 if MsgBox == 'yes':
