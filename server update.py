@@ -62,9 +62,10 @@ if selection == 6:
 if selection == 7:
     root = tk.Tk()
     root.withdraw()
-
+    cwd = os.getcwd()
     file_path = filedialog.askdirectory()
-    subprocess.call(["cd", "server", ";", "rm", "-rf", "world", ";", "cp", file_path, "."])
+    os.system("cd server ; rm -rf world ; cp -r %s ."%file_path)
+    #os.system("osascript -e \'tell app \"Terminal\" to do script \"cd ~/pictures/server/server.app/Contents/Resources ; cd server ; rm -rf world ; cp -r %s .\"\'"%file_path)
 MsgBox = tk.messagebox.askquestion ('Use Ngrok?','Do you want to use ngrok or be guided to server.properties to configure your server? this will not work if the derectory that this app is in has spaces',icon = 'warning')
 if MsgBox == 'yes':
     cwd = os.getcwd()
