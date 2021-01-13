@@ -25,10 +25,10 @@ Radiobutton(master, text = "Configure server.prop", variable=var, value = 3).gri
 Radiobutton(master, text = "Add a plugin", variable=var, value = 4).grid(row=4, sticky=W)
 Radiobutton(master, text = "Add a world file", variable=var, value = 5).grid(row=5, sticky=W)
 Radiobutton(master, text = "Backup world", variable=var, value = 6).grid(row=5, sticky=W)
-#ask the dev
+Radiobutton(master, text = "Load World file", variable=var, value = 7).grid(row=7, sticky=W)
 #modded version
-Radiobutton(master, text = "Start Server", variable=var, value = 7).grid(row=6, sticky=W)
-Button(master, text = "GO!", command=quit_loop).grid(row=8, sticky=W)
+Radiobutton(master, text = "Start Server", variable=var, value = 8).grid(row=8, sticky=W)
+Button(master, text = "GO!", command=quit_loop).grid(row=9, sticky=W)
 
 master.mainloop()
 
@@ -59,6 +59,12 @@ if selection == 6:
         print(file_path)
         subprocess.run(["cd", "server", ";", "cp", "-r", "world", file_path])
         os.system("cd server ; cp -r world %s"%file_path)
+if selection == 7:
+    root = tk.Tk()
+    root.withdraw()
+
+    file_path = filedialog.askopenfilename()
+    subprocess.call(["cd", "server", ";", "rm", "-rf", "world", ";", "cp", file_path, "."])
 MsgBox = tk.messagebox.askquestion ('Use Ngrok?','Do you want to use ngrok or be guided to server.properties to configure your server? this will not work if the derectory that this app is in has spaces',icon = 'warning')
 if MsgBox == 'yes':
     cwd = os.getcwd()
